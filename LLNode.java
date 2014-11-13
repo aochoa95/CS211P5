@@ -5,32 +5,39 @@ public class LLNode implements Node{
 //	private Node head;
 	
 	public LLNode(Comparable<Person> data){
-		this.data = data; 
+		this.data = data;
 		next = null;
+		prev = null;
 	}
-	
+
 	public Node add(Node node){
+		LLNode current = this;
+		while (current.getNext() != null){
+			if (node.getData().compareTo(current.getData) < 1){
+				next = new LLNode(node.getData());
+				next.setPrev(this);
+			}
+		}
+		node.getData()
+		//TODO make it make sense
 		//TODO sort
+		//TODO return head
 		return this;
 	}
 	
 	public Node search(Comparable item){
-		Node current = this;
-		while (current.next != null){
+		LLNode current = this;
+		while (current.getNext() != null){
 			if (item.compareTo(current.getData()) == 0)
-				return current;
-			current = current.next;
+				return (Node)current;
+			current = (LLNode)current.getNext();
 		}
 		return null;
-		//TODO fix
 	}
 
-	public Comparable<Person> getData(){ 
-		return data;
-		//TODO return head
-	}
-	
+	public Comparable<Person> getData(){ return data; }
 	public Node getNext(){ return next; }
+	public Node getPrev(){ return prev; }
 	public void setNext(Node next){ this.next = next; }
 	public void setPrev(Node prev){ this.prev = prev; }
 }
