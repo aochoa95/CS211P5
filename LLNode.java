@@ -11,18 +11,19 @@ public class LLNode implements Node{
 	}
 
 	public Node add(Node node){
+		LLNode head = this;
 		LLNode current = this;
 		while (current.getNext() != null){
-			if (node.getData().compareTo(current.getData) < 1){
-				next = new LLNode(node.getData());
-				next.setPrev(this);
+			if (node.getData().compareTo(current.getData()) < 0){
+				LLNode prevprev = current.getPrev();
+				current.setPrev(node);
+				current.getPrev().setPrev(prevprev);
+				current.getPrev().setNext(current);
 			}
 		}
 		node.getData()
-		//TODO make it make sense
-		//TODO sort
-		//TODO return head
-		return this;
+		//TODO make it make sense; this code is jank dun use it
+		return head;
 	}
 	
 	public Node search(Comparable item){
