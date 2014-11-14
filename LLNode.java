@@ -1,3 +1,4 @@
+//Partners: Ethan Huey, Andreas Ochoa
 public class LLNode implements Node{
 	private Comparable data; 
 	private Node next;
