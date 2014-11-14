@@ -61,4 +61,6 @@ Questions
 2. The sorted array is going through a basic, slow, linear search. However the
    LinkedLists do not need to shift ~500 pieces of data to make space.
 
+3. No, the numbers are different because of the entropy of the numbers. 
+
 */
