@@ -14,7 +14,7 @@ public class LLNode implements Node{
 	public Node add(Node node){
 		LLNode head = this;
 		LLNode current = this;
-		while (current.getNext() != null){
+		while (current != null){ 
 			if (current.getData().compareTo(node.getData()) < 0){
 				LLNode prevprev = (LLNode)current.getPrev();
 				current.setPrev(node);
@@ -23,10 +23,12 @@ public class LLNode implements Node{
 				if (prevprev != null)
 					prevprev.setNext(current.getPrev());
 				if (head.getData().compareTo(node.getData()) < 0)
-					head = current;
+					head = (LLNode)node;
 				return head;
 			}
-			current = (LLNode)current.getNext();
+			if (current.getNext() != null)
+				current = (LLNode)current.getNext();
+			else break;
 		}
 		current.setNext(node);
 		current.getNext().setPrev(current);
@@ -35,7 +37,7 @@ public class LLNode implements Node{
 	
 	public Node search(Comparable item){
 		LLNode current = this;
-		while (current.getNext() != null){
+		while (current != null){
 			if (item.compareTo(current.getData()) == 0)
 				return (Node)current;
 			current = (LLNode)current.getNext();
