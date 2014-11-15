@@ -63,6 +63,11 @@ Questions
 2. The sorted array is going through a basic, slow, linear search. However the
    LinkedLists do not need to shift ~500 pieces of data to make space.
 
-3. No, the numbers are different because of the entropy of the numbers. 
+3. No, the numbers are different because of the entropy of the numbers.
+
+4. No it is added to wherever it fits in. It will be in different places 
+   depending on the randomly generated number. It should not matter with timing.
+
+5. The ArrayList is searched with indexOf. Perhaps add a reference to each Node.
 
 */
